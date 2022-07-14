@@ -21,16 +21,45 @@ const resetDisplay = function() {
     displayInput.value = ""
 }
 
+const checkLetters = function(keyEvent) {
+    //if(keyEvent.key.match("[A-Za-z]") !== null) {
+        console.log(isNaN(parseInt(keyEvent.target.value)))
+    if(isNaN(keyEvent.target.value)){
+        //it's a letter! TRIGGER ERROR!
+        displayInput.value = "Syntax Error!"
+    }
+}
+
+const backSpace = function() {
+    //take the input value 
+    let inputValue = displayInput.value
+    //take away the last num 
+        //divide the string into an array of letters 
+    let arrayOfChars = inputValue.split("")
+    console.log(arrayOfChars)
+    
+    // delete the last element 
+    arrayOfChars.pop()
+    console.log(arrayOfChars)
+    // put it back together as a string
+    let newValue = arrayOfChars.join("")
+    console.log(newValue)
+    //show it
+    displayInput.value = newValue
+}
+
 //math
 const chooseOp = function(op) {
     h4.innerText = displayInput.value + op
     CURR_OP = op
-    CURR_RES = parseInt(displayInput.value)
+    CURR_RES = parseFloat(displayInput.value)
     console.log(CURR_OP)
     resetDisplay()
 }
 
-
+const insertFloat = function() {
+    displayInput.value += "."
+}
 
 const calculateResult = function() {
     h4.innerText += displayInput.value
@@ -41,19 +70,18 @@ const calculateResult = function() {
     // if op is sub = CURR_RES - displayInput.value
     // op???? => CURR_OP
     if(CURR_OP === "+") {
-        CURR_RES += parseInt(displayInput.value)
+        CURR_RES += parseFloat(displayInput.value)
     } else if (CURR_OP === "-") {
-        CURR_RES -= parseInt(displayInput.value)
+        CURR_RES -= parseFloat(displayInput.value)
     } else if(CURR_OP === "*") {
-        CURR_RES *= parseInt(displayInput.value)
+        CURR_RES *= parseFloat(displayInput.value)
     } else if(CURR_OP === "/") {
-        CURR_RES /= parseInt(displayInput.value)
+        CURR_RES /= parseFloat(displayInput.value)
     }
     displayInput.value = CURR_RES
     h4.innerText += "=" + CURR_RES
     console.log(CURR_RES)
 }
-
 
 //exec
 
