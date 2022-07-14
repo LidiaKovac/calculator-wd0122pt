@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <h4></h4>
+    <input id="screen" placeholder="0"/>
+
+    <button id="division" onclick="chooseOp('/')">/</button>
+    <button id="multiplication" onclick="chooseOp('*')">*</button>
+    <button id="subtraction" onclick="chooseOp('-')">-</button>
+    <button id="sum" onclick="chooseOp('+')">+</button>
+    <br>
+    <div id="numpad">
+
+    </div>
+<button onclick="calculateResult()">ENTER</button> 
+<button onclick="resetDisplay()">DEL</button>
+    <script src="./js/index.js"></script>
+</body>
+</html>
